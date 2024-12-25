@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Registration Form | CodingLab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<style>
+      body{
+        font-family: 'Poppins', sans-serif;}
+
+</style>
+<body>
+  <div class="container">
+    <!-- Title section -->
+    <div class="title">Registration</div>
+    <div class="content">
+      <!-- Registration form -->
+      <form action="/register" method="post">
+        <div class="user-details">
+          <!-- Input for Full Name -->
+          <div class="input-box">
+            <span class="details"><label for="st">Student Name</label> </span>
+            <input id="st" type="text" name="name" placeholder="Enter your name" required />
+          </div>
+          <!-- Input for Username -->
+          <div class="input-box">
+            <span class="details"><label for="enr">Enrollment Number</label></span>
+            <input id="enr" type="text" name="Enrollment" placeholder="Enter your Enrollment Number" required />
+          </div>
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details"><label for="email"> Email</label></span>
+            <input id="email" type="text" name="email" placeholder="Enter your email" required />
+          </div>
+          <!-- Input for Phone Number -->
+          <div class="input-box">
+            <span class="details"><label for="ph">Phone Number</label></span>
+            <input id="ph" type="text" name="Phone" placeholder="Enter your number" required />
+          </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details"> <label for="pas">Password</label> </span>
+            <input id="pas" type="password" name="password" placeholder="Enter your password" required />
+          </div>
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details"><label for="cpas">Confirm Password</label> </span>
+            <input id="cpas" type="password" name="cpassword" placeholder="Confirm your password" required />
+          </div>
+          <div class="input-box">
+            <span class="details"> <label for="add">Address</label< /span>
+                <input id="add" type="text" name="address" placeholder="Enter your address" required />
+          </div>
+        </div>
+
+
+        <!-- Submit button -->
+        <div class="button">
+          <input type="submit" value="Register" />
+        </div>
+      </form>
+      <span>Have an account? </span>
+            <a href="/login" >Sign in</a>
+    </div>
+  </div>
+</body>
+
+</html>
+</body>
+
+</html>

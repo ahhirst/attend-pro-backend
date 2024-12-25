@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attendance Dashboard</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      color: #fff;
+    }
+
+    .contenior-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+      color: #fff;
+    }
+
+    .card p {
+      color: #e0e0e0;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background-color: #7a5cff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button:hover {
+      background-color: #5a3fbf;
+    }
+
+    .card .download {
+      background-color: #28a745;
+    }
+
+    .card .download:hover {
+      background-color: #1e7e34;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 15px;
+      }
+
+      .card h3 {
+        font-size: 1.2em;
+      }
+
+      .card p {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenior-section"> 
+      <h1>Hello , {{tech[0]}} Ma'am</h1>
+    <div class="dashboard">
+      <!-- Attendance Data Card -->
+      <div class="card">
+        <h3>Attendance Overview</h3>
+        <p>View and update attendance records for students.</p>
+        <button onclick="viewAttendance()">View Attendance</button>
+      </div>
+
+      <!-- Marks Data Card -->
+      <div class="card">
+        <h3>Marks Overview</h3>
+        <p>Check student performance in various subjects.</p>
+        <button submit="/" >View Marks</button>
+      </div>
+
+      <!-- Download Data Card -->
+      <div class="card">
+        <h3>Download Reports</h3>
+        <p>Generate and download attendance and marks data.</p>
+        <button class="download" onclick="downloadData()">Download Data</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // function viewAttendance() {
+    //   alert('Redirecting to Attendance Overview...');
+    //   window.location.href="attendance.html"
+      // Implement actual navigation or functionality here
+    // }
+
+    function viewMarks() {
+      alert('Redirecting to Marks Overview...');
+      // Implement actual navigation or functionality here
+    }
+
+    function downloadData() {
+      alert('Preparing data for download...');
+      const data = {
+        attendance: [
+          { name: "Student A", attendance: "95%" },
+          { name: "Student B", attendance: "87%" },
+        ],
+        marks: [
+          { name: "Student A", subject: "Math", marks: 89 },
+          { name: "Student B", subject: "Science", marks: 78 },
+        ],
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "attendance_marks_data.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
